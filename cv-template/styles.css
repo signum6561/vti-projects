@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --black: #000;
+  --white: #fff;
+  --box-color: #ecedec;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 18px;
+  text-rendering: optimizeSpeed;
+  color: var(--text-color);
+  background-color: var(--black);
+}
+
+h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+.cv {
+  background-color: var(--white);
+  width: 852px;
+  height: 1204px;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  width: 100%;
+  height: 28.3%;
+  padding: 20px 20px 0 20px;
+}
+
+.contact {
+  width: 30%;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.name {
+  font-size: 6.6rem;
+  line-height: 62px;
+  margin-bottom: 10px;
+}
+
+.text-box {
+  background-color: var(--box-color);
+  width: 100%;
+  height: min-content;
+  padding: 20px 15px 10px 15px;
+  border-radius: 18px;
+}
+
+.highlight {
+  display: inline-block;
+  background-color: var(--black);
+  color: var(--white);
+  font-weight: 400;
+  font-size: 2.2rem;
+  padding: 5px;
+}
+
+.divider {
+  border-bottom: 3px solid var(--box-color);
+  margin: 0 20px;
+}
+
+.overview {
+  display: flex;
+  width: 100%;
+  height: 71.7%;
+  padding: 20px 20px 0 20px;
+}
+
+.left-side {
+  width: 60%;
+}
+
+.right-side {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.list {
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+
+.list > li::marker {
+  font-size: 0.8em;
+}
+
+.regular-text {
+  font-weight: 400;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.spacing {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrap {
+  margin-bottom: 10px;
+}
