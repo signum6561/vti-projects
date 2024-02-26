@@ -251,6 +251,20 @@ const orders = [
     quantity: 1,
     date: '2024-02-02T10:00:00Z',
   },
+  {
+    id: 21,
+    userId: 3,
+    productId: 17,
+    quantity: 3,
+    date: '2024-02-02T10:00:00Z',
+  },
+  {
+    id: 22,
+    userId: 2,
+    productId: 18,
+    quantity: 3,
+    date: '2024-02-02T10:00:00Z',
+  },
 ];
 
 // 1. hiển thị list product có category là 'Home'
@@ -323,8 +337,16 @@ function topProducts() {
 // console.log(topProducts());
 
 // 9. Tìm list sp mà user 2 và user 3 đều mua
-function productsByUsers(...userIds) {
-  const _orders = orders.filter((order) => userIds.includes(order.userId));
-  return _orders;
+function productsByUsers(id1, id2) {
+  const temp = [];
+  const res = [];
+  orders.forEach((order) => {
+    if (temp.includes(order.productId)) {
+      res.push(order.productId);
+      return;
+    }
+    if (order.userId === id1 || order.userId === id2) temp.push(order.productId);
+  });
+  return products.filter((product) => res.includes(product.id));
 }
 console.log(productsByUsers(2, 3));
