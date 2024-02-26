@@ -257,7 +257,7 @@ const orders = [
 function filterProductByCatagory(str) {
   return products.filter((product) => product.category === str);
 }
-// console.log(filterProductByCatagory(products));
+// console.log(filterProductByCatagory('Home'));
 
 // 2. hiển thị list product có price > 50 và sắp xếp sản phẩm có giá từ cao xuống thấp
 function filterAndSortProducts() {
@@ -276,21 +276,21 @@ function filterOrderByName(name) {
 function totalOfUser(name) {
   return filterOrderByName(name).reduce((sum, order) => {
     const _product = products.find((product) => product.id === order.productId);
-    return sum + _product.price;
+    return sum + _product.price * order.quantity;
   }, 0);
 }
-// console.log(totalOfUser('Emma Davis'));
+// console.log(totalOfUser('Emma Davis')); 469.93
 
 // 5. hiển thị top 3 users chi tiêu mạnh nhất
 function topUsers() {
   return users
     .reduce((arr, user) => {
-      _user = structuredClone(user);
+      const _user = structuredClone(user);
       _user.total = totalOfUser(_user.name);
       arr.push(_user);
       return arr;
     }, [])
-    .sort((a, b) => b.totalPrice - a.totalPrice)
+    .sort((a, b) => b.total - a.total)
     .splice(0, 3);
 }
 // console.log(topUsers());
@@ -309,7 +309,7 @@ function isAllBillGreaterThan(num) {
 function topProducts() {
   return products
     .reduce((arr, product) => {
-      _product = structuredClone(product);
+      const _product = structuredClone(product);
       _product.totalQuanity = orders.reduce(
         (sum, order) => (order.productId === _product.id ? sum + order.quantity : sum),
         0,
@@ -321,3 +321,10 @@ function topProducts() {
     .splice(0, 3);
 }
 // console.log(topProducts());
+
+// 9. Tìm list sp mà user 2 và user 3 đều mua
+function productsByUsers(...userIds) {
+  const _orders = orders.filter((order) => userIds.includes(order.userId));
+  return _orders;
+}
+console.log(productsByUsers(2, 3));

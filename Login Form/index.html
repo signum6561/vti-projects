@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+    <link href="./styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="signin-container form-container">
+        <form action="">
+          <h1>Login</h1>
+          <div class="inputBox"><input type="text" required /><span>Email</span></div>
+          <div class="inputBox"><input type="password" required /><span>Password</span></div>
+          <div class="links">
+            <label><input type="checkbox" /> Remember me</label><a href="" class="forgot-pass-link">Forgot password?</a>
+          </div>
+          <button class="btn">Log In</button>
+          <p>Or Sign Up Using</p>
+          <div class="social-media">
+            <a href=""><i class="fab fa-facebook-f"></i></a>
+            <a href=""><i class="fab fa-google-plus-g"></i></a>
+            <a href=""><i class="fab fa-twitter"></i></a>
+          </div>
+        </form>
+      </div>
+      <div class="signup-container form-container">
+        <form action="#">
+          <h1>Create Account</h1>
+          <div class="inputBox"><input type="text" required /><span>Username</span></div>
+          <div class="inputBox"><input type="text" required /><span>Email</span></div>
+          <div class="inputBox"><input type="password" required /><span>Password</span></div>
+          <div class="inputBox"><input type="password" required /><span>Confirm Password</span></div>
+          <label><input type="checkbox" /> I have read and agreed to <a href="">the terms and conditions.</a></label>
+          <button class="btn">Create</button>
+        </form>
+      </div>
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <h1>Already have account?</h1>
+          <button class="custom-btn" id="signin-btn">Sign in</button>
+        </div>
+        <div class="panel right-panel">
+          <h1>Welcome, User!</h1>
+          <p>Don't have account?</p>
+          <button class="custom-btn" id="signup-btn">Create</button>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
