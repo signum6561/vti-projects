@@ -341,11 +341,12 @@ function productsByUsers(id1, id2) {
   const temp = [];
   const res = [];
   orders.forEach((order) => {
+    if (order.userId !== id1 && order.userId !== id2) return;
     if (temp.includes(order.productId)) {
       res.push(order.productId);
       return;
     }
-    if (order.userId === id1 || order.userId === id2) temp.push(order.productId);
+    temp.push(order.productId);
   });
   return products.filter((product) => res.includes(product.id));
 }
