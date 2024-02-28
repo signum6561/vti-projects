@@ -337,17 +337,17 @@ function topProducts() {
 // console.log(topProducts());
 
 // 9. Tìm list sp mà user 2 và user 3 đều mua
-function productsByUsers(id1, id2) {
-  const temp = [];
-  const res = [];
-  orders.forEach((order) => {
-    if (order.userId !== id1 && order.userId !== id2) return;
-    if (temp.includes(order.productId)) {
-      res.push(order.productId);
-      return;
-    }
-    temp.push(order.productId);
-  });
-  return products.filter((product) => res.includes(product.id));
-}
+// function productsByUsers(id1, id2) {
+//   const temp = [];
+//   const res = [];
+//   orders.forEach((order) => {
+//     if (order.userId !== id1 && order.userId !== id2) return;
+//     if (temp.includes(order.productId)) {
+//       res.push(order.productId);
+//       return;
+//     }
+//     temp.push(order.productId);
+//   });
+//   return products.filter((product) => res.includes(product.id));
+// }
 console.log(productsByUsers(2, 3));
