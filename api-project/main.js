@@ -1,5 +1,7 @@
 const BASE_API = 'https://jsonplaceholder.typicode.com/';
 const contentDiv = document.querySelector('.content');
+const detailTitle = document.getElementById('detail-title');
+const detailContent = document.getElementById('detail-content');
 
 //#region USER
 const fetchUserList = async () => {
@@ -19,7 +21,9 @@ const createUserCardList = (userList) => {
         <p><strong>ID:</strong> ${user.id}</p>
         <p><strong>Name:</strong> ${user.name}</p>
         <p><strong>Username:</strong> ${user.username}</p>
-        <button class="regular viewDetail-btn" onclick='viewDetailUser(${JSON.stringify(user)})'>View Detail</button>
+        <button class="regular viewDetail-btn" onclick='viewDetailUser(${JSON.stringify(
+          user,
+        )})'>View Detail</button>
       </div>
 `,
     )
@@ -27,8 +31,8 @@ const createUserCardList = (userList) => {
 };
 
 const viewDetailUser = (user) => {
-  const userInfoDiv = document.getElementById('detail-content');
-  userInfoDiv.innerHTML = `
+  detailTitle.innerHTML = `User Detail Title`;
+  detailContent.innerHTML = `
           <div class="base-info">
             <h2>${user.name}</h2>
             <p><strong>ID:</strong> ${user.id}</p>
@@ -38,7 +42,7 @@ const viewDetailUser = (user) => {
             <p><strong>Website:</strong> ${user.website}</p>
           </div>
           `;
-  document.getElementById('myModal').style.display = 'block';
+  openModal();
 };
 
 //#endregion
@@ -60,7 +64,9 @@ const createPostCardList = (postList) => {
       <div class="card base-info">
         <p><strong>ID:</strong> ${post.id}</p>
         <p><strong>UserID:</strong> ${post.userId}</p>
-        <button class="regular viewDetail-btn" onclick='viewDetailPost(${JSON.stringify(post)})'>View Detail</button>
+        <button class="regular viewDetail-btn" onclick='viewDetailPost(${JSON.stringify(
+          post,
+        )})'>View Detail</button>
       </div>
 `,
     )
@@ -68,8 +74,8 @@ const createPostCardList = (postList) => {
 };
 
 const viewDetailPost = (post) => {
-  const postInfoDiv = document.getElementById('detail-content');
-  postInfoDiv.innerHTML = `
+  detailTitle.innerHTML = `Post Detail Title`;
+  detailContent.innerHTML = `
             <div class="base-info">
               <p><strong>ID:</strong> ${post.id}</p>
               <p><strong>UserID:</strong> ${post.userId}</p>
@@ -77,7 +83,7 @@ const viewDetailPost = (post) => {
               <p><strong>Body:</strong> ${post.body}</p>
             </div>
       `;
-  document.getElementById('myModal').style.display = 'block';
+  openModal();
 };
 
 //#endregion
@@ -110,8 +116,8 @@ const createCommentCardList = (commentList) => {
 };
 
 const viewDetailComment = (comment) => {
-  const commentInfoDiv = document.getElementById('detail-content');
-  commentInfoDiv.innerHTML = `
+  detailTitle.innerHTML = `Comment Detail Title`;
+  detailContent.innerHTML = `
             <div class="base-info">
               <p><strong>ID:</strong> ${comment.id}</p>
               <p><strong>PostID:</strong> ${comment.postId}</p>
@@ -120,7 +126,7 @@ const viewDetailComment = (comment) => {
               <p><strong>Body:</strong> ${comment.body}</p>
             </div>
       `;
-  document.getElementById('myModal').style.display = 'block';
+  openModal();
 };
 
 //#endregion
@@ -146,7 +152,9 @@ const createPhotoCardList = (photoList) => {
           <p><strong>AlbumID:</strong> ${photo.albumId}</p>
           <button class="regular viewDetail-btn" onclick='viewDetailPhoto(${JSON.stringify(
             photo,
-          )})'>View Detail</button>
+          )})'>
+            View Detail
+          </button>
         </div>
       </div>
 `,
@@ -155,8 +163,8 @@ const createPhotoCardList = (photoList) => {
 };
 
 const viewDetailPhoto = (photo) => {
-  const photoInfoDiv = document.getElementById('detail-content');
-  photoInfoDiv.innerHTML = `
+  detailTitle.innerHTML = `Photo Detail Content`;
+  detailContent.innerHTML = `
             <div class="img-info">
               <img src="${photo.url}" alt=""  width="300px" height="300px">
               <div class="base-info">
@@ -166,7 +174,7 @@ const viewDetailPhoto = (photo) => {
               </div>
             </div>
       `;
-  document.getElementById('myModal').style.display = 'block';
+  openModal();
 };
 
 //#endregion
@@ -188,7 +196,9 @@ const createAlbumCardList = (albumList) => {
       <div class="card base-info">
         <p><strong>ID:</strong> ${album.id}</p>
         <p><strong>UserID:</strong> ${album.userId}</p>
-        <button class="regular viewDetail-btn" onclick='viewDetailAlbum(${JSON.stringify(album)})'>View Detail</button>
+        <button class="regular viewDetail-btn" onclick='viewDetailAlbum(${JSON.stringify(
+          album,
+        )})'>View Detail</button>
       </div>
 `,
     )
@@ -196,15 +206,15 @@ const createAlbumCardList = (albumList) => {
 };
 
 const viewDetailAlbum = (album) => {
-  const albumInfoDiv = document.getElementById('detail-content');
-  albumInfoDiv.innerHTML = `
+  detailTitle.innerHTML = `Album Detail Title`;
+  detailContent.innerHTML = `
             <div class="base-info">
               <p><strong>ID:</strong> ${album.id}</p>
               <p><strong>UserID:</strong> ${album.userId}</p>
               <p><strong>Title:</strong> ${album.title}</p>
             </div>
       `;
-  document.getElementById('myModal').style.display = 'block';
+  openModal();
 };
 
 //#endregion
@@ -226,7 +236,9 @@ const createTodoCardList = (todoList) => {
       <div class="card base-info">
         <p><strong>ID:</strong> ${todo.id}</p>
         <p><strong>UserID:</strong> ${todo.userId}</p>
-        <button class="regular viewDetail-btn" onclick='viewDetailTodo(${JSON.stringify(todo)})'>View Detail</button>
+        <button class="regular viewDetail-btn" onclick='viewDetailTodo(${JSON.stringify(
+          todo,
+        )})'>View Detail</button>
       </div>
 `,
     )
@@ -234,8 +246,8 @@ const createTodoCardList = (todoList) => {
 };
 
 const viewDetailTodo = (todo) => {
-  const todoInfoDiv = document.getElementById('detail-content');
-  todoInfoDiv.innerHTML = `
+  detailTitle.innerHTML = `Todo Detail Title`;
+  detailContent.innerHTML = `
             <div class="base-info">
               <p><strong>ID:</strong> ${todo.id}</p>
               <p><strong>UserID:</strong> ${todo.userId}</p>
@@ -243,7 +255,7 @@ const viewDetailTodo = (todo) => {
               <p><strong>Completed:</strong> ${todo.completed}</p>
             </div>
       `;
-  document.getElementById('myModal').style.display = 'block';
+  openModal();
 };
 
 //#endregion
@@ -265,6 +277,10 @@ const handleDataFetch = async (fetchData, createCardList) => {
     .catch((err) => {
       console.error('Error fetch data', err);
     });
+};
+
+const openModal = () => {
+  document.getElementById('myModal').style.display = 'block';
 };
 
 const closeModal = () => {

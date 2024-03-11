@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link href="./styles.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   </head>
   <body>
     <div class="sidebar">
@@ -44,14 +43,11 @@
     <div id="myModal" class="modal">
       <div class="detail-panel">
         <header>
-          Detail Modal<span
-            class="close-btn iconify"
-            onclick="closeModal()"
-            data-icon="lets-icons:close-round-duotone"
-          ></span>
+          <p id="detail-title">Detail Modal</p>
+          <span class="close-btn iconify" onclick="closeModal()" data-icon="lets-icons:close-round-duotone"></span>
         </header>
         <div id="detail-content"></div>
-        <button class="regular save-btn">Save</button>
+        <button class="regular save-btn" onclick="closeModal()">Save</button>
       </div>
     </div>
     <script src="./main.js"></script>
