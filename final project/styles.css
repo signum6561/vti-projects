@@ -1,0 +1,415 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --sidebar-width: 250px;
+  --sidebar-background-color: #18191a;
+  --sidebar-text-color: #d0cfce;
+  --primary-color: #3b50ed;
+  --card-color: #fff;
+  --border-primary-color: red;
+  --border-color: #e4e6eb;
+  --border-divider: 2px solid #e4e6eb;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  text-rendering: optimizeSpeed;
+  color: #000;
+  background-color: #fff;
+}
+
+input[type='checkbox'] {
+  vertical-align: -0.2em;
+  width: 18px;
+  height: 18px;
+}
+
+.sidebar {
+  position: fixed;
+  background-color: var(--sidebar-background-color);
+  width: var(--sidebar-width);
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+header {
+  color: #000;
+  font-size: 30px;
+  font-weight: 600;
+  padding: 10px 0;
+}
+
+.sidebar header {
+  border-bottom: 1px solid #383636;
+  color: #fff;
+  text-align: center;
+  background-color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.sidebar ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.sidebar ul li {
+  position: relative;
+  width: 100%;
+  padding: 0 5px;
+}
+
+.nav-link {
+  display: block;
+  text-decoration: none;
+  width: 100%;
+  padding: 10px 20px;
+  color: var(--sidebar-text-color);
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 7px;
+  transition: 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-link .iconify {
+  margin-right: 10px;
+}
+
+.iconify {
+  vertical-align: -0.25em;
+  font-size: 1.5em;
+  overflow: visible;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  margin-left: var(--sidebar-width);
+  padding: 30px;
+}
+
+.content {
+  width: 100%;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  position: relative;
+  height: 250px;
+  background-color: var(--card-color);
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.card p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.btn-container {
+  display: flex;
+  column-gap: 10px;
+}
+
+.card .btn-container {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 1.8em;
+  column-gap: 20px;
+}
+
+.regular-btn-type {
+  border-radius: 5px;
+  width: 150px;
+  height: 38px;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.circle-btn-type {
+  font-size: 1.5em;
+  border-radius: 50%;
+  background-color: #d8dadf;
+  padding: 10px;
+  cursor: pointer;
+  color: #fff;
+  transition: 0.2s ease-in-out;
+}
+
+.regular-btn-type:hover,
+.circle-btn-type:hover {
+  opacity: 0.7;
+}
+
+.sort-btn {
+  background-color: #dfdfdf;
+  border: 3px solid #3c3c3c;
+  color: #000;
+}
+
+.add-btn {
+  width: 90px;
+}
+
+.viewDetail-btn {
+  background-color: #38a073;
+}
+
+.edit-btn {
+  background-color: #408cba;
+}
+
+.delete-btn {
+  background-color: #eb3f3f;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.34);
+  z-index: 5;
+  left: 0;
+  top: 0;
+}
+
+.modal-panel,
+.center-text {
+  position: absolute;
+  left: calc(50% + var(--sidebar-width) * 0.5);
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-panel {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fefefe;
+  width: 800px;
+  height: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.modal-panel header {
+  text-align: center;
+  width: 100%;
+  border-bottom: var(--border-divider);
+}
+
+.close-btn {
+  position: absolute;
+  left: 93.5%;
+  top: 7px;
+  cursor: pointer;
+  color: #000;
+}
+
+.close-btn:hover {
+  opacity: 0.5;
+}
+
+.modal-panel-content {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  overflow: auto;
+}
+
+.modal-panel footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+  border-top: var(--border-divider);
+}
+
+.close-btn {
+  position: absolute;
+  top: 1%;
+  right: 1%;
+}
+
+.save-btn {
+  width: 95%;
+  height: 40px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  background-color: #d8dadf;
+  color: #505151;
+}
+
+.base-info p,
+h2 {
+  margin-bottom: 10px;
+}
+
+.img-info {
+  display: flex;
+  column-gap: 20px;
+}
+
+.form-container {
+  width: 100%;
+  height: 73%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  width: 400px;
+}
+
+.input-textBox {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-textBox input {
+  width: 75%;
+  background-color: #eee;
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 18px;
+}
+
+.input-textBox label {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.input-checkBox input {
+  margin-right: 10px;
+}
+
+.form-submitBtn {
+  width: 100%;
+}
+
+.action-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.searchBar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 400px;
+  height: 45px;
+  border-radius: 20px;
+  border: var(--border-divider);
+  overflow: hidden;
+}
+
+.searchBar input {
+  position: absolute;
+  left: 50px;
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-size: 18px;
+  padding: 0 15px;
+  z-index: 5;
+  transition: 0.2s ease-in-out;
+}
+
+.searchBar input::placeholder {
+  font-style: italic;
+}
+
+.searchBar input:focus {
+  outline: none;
+}
+
+.searchBar:focus-within > input {
+  transform: translate(-50px);
+}
+
+.searchBar .iconify {
+  width: 50px;
+  height: 50px;
+  padding: 12px;
+  border-right: var(--border-divider);
+  color: #858585;
+}
+
+.alert-container {
+  display: none;
+}
+
+.alert-msg {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 15px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.alert-msg .iconify {
+  font-size: 1.2em;
+  margin-right: 5px;
+}
+
+.alert-close {
+  cursor: pointer;
+}
+
+.success-msg-type {
+  background-color: #dff0d8;
+}
+
+.error-msg-type {
+  background-color: #f2dede;
+}

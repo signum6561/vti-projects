@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <header>Menu</header>
+      <ul>
+        <li>
+          <a class="nav-link" onclick="initializeProductPage()">
+            <span class="iconify" data-icon="bxs:user"></span>Product
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" onclick="initializeUserPage()">
+            <span
+              class="iconify"
+              data-icon="material-symbols:post-outline-rounded"
+            >
+            </span
+            >User
+          </a>
+        </li>
+      </ul>
+    </div>
+    <main>
+      <header id="content-title"></header>
+      <div class="action-section"></div>
+      <div class="alert-container"></div>
+      <div class="content"></div>
+    </main>
+    <div id="detailModal" class="modal">
+      <div class="modal-panel">
+        <header>
+          <p id="detail-title">Detail Modal</p>
+          <span
+            class="circle-btn-type close-btn iconify"
+            onclick="handleDetailModal(0)"
+            data-icon="uiw:close"
+          ></span>
+        </header>
+        <div id="detail-content" class="modal-panel-content"></div>
+      </div>
+    </div>
+    <div id="createModal" class="modal">
+      <div class="modal-panel">
+        <header>
+          <p id="create-title">Detail Modal</p>
+          <span
+            class="circle-btn-type close-btn iconify"
+            onclick="handleCreateModal(0)"
+            data-icon="uiw:close"
+          ></span>
+        </header>
+        <div class="form-container">
+          <form id="create-form"></form>
+        </div>
+        <footer>
+          <button
+            type="submit"
+            form="create-form"
+            class="regular-btn-type form-submitBtn"
+          >
+            Create
+          </button>
+        </footer>
+      </div>
+    </div>
+    <div id="editModal" class="modal">
+      <div class="modal-panel">
+        <header>
+          <p id="edit-title">Detail Modal</p>
+          <span
+            class="circle-btn-type close-btn iconify"
+            onclick="handleEditModal(0)"
+            data-icon="uiw:close"
+          ></span>
+        </header>
+        <div class="form-container">
+          <form id="edit-form"></form>
+        </div>
+        <footer>
+          <button
+            type="submit"
+            form="edit-form"
+            class="regular-btn-type form-submitBtn"
+          >
+            Save
+          </button>
+        </footer>
+      </div>
+    </div>
+    <script src="./main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iconify/2.0.0/iconify.min.js"></script>
+  </body>
+</html>
